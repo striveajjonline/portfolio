@@ -64,9 +64,13 @@
                 <ul class="slides">
                     <li>
                         <div class="overlay-video">
-                            <video autoplay loop muted id="vid">
+                            <video id="myVideo" autoplay loop muted>
                                 <source src="images/4K Relaxing Nature Sounds - Short Video Clips of Nature.mp4" type="video/mp4">
+                                <source src="images/4K Relaxing Nature Sounds - Short Video Clips of Nature.ogg" type="video/ogg">
                             </video>
+                            <audio loop controls id="mp3">
+                                <source src="images/4K Relaxing Nature Sounds - Short Video Clips of Nature.mp3" type="audio/mp3">
+                            </audio>
                         </div>
                         <div class="overlay-color"></div>
                         <div class="container-fluid">
@@ -86,6 +90,7 @@
                                                           <b>&nbsp;Politician</b>
                                                         </span>
                                                     </h2> </div>
+                                                    <button id="audio"><i class="ti-volume"> </i>Enable Audio</button>
                                         <div class="arrow bounce">
                                             <a href="index.html#about" data-scroll-nav="1" class=""> <i class="ti-angle-double-down"></i> </a>
                                         </div>
@@ -118,7 +123,7 @@
                                         <b>Politician</b>
                                     </span>
                                 </h2>
-                    <p>Hi, My name is Snekan. I am a Tamil poet, politician, lyricist, and actor with experience in Tamil cinema. I started my political career in 2018 with Makkal Needhi Maiam and ran for Lok Sabha. He ran for the Virugambakkam Constituency in the 2021 Tamil Nadu Legislative Assembly election on behalf of Makkal Needhi Maiam.</p>
+                    <p>Hi, My name is Snekan. I am a Tamil poet, politician, lyricist, and actor with experience in Tamil cinema. I started my political career in 2018 with Makkal Needhi Maiam and ran for Lok Sabha. I ran for the Virugambakkam Constituency in the 2021 Tamil Nadu Legislative Assembly election on behalf of Makkal Needhi Maiam.</p>
                     <div class="addo-about-contact-wrap">
                         <div class="row">
                             <div class="col-md-6">
@@ -453,13 +458,17 @@
     </div>
     <!-- jQuery -->
     <script>
-        var video=document.getElementById("vid") ;  
-        
-        video.removeAttribute('muted')
-
-        /*$(video).on("load", function(e){
-        video.muted = !video.muted;
-        });*/
+        var aud = document.getElementById('audio')
+        var vid = document.getElementById('myVideo')
+        var sound = document.getElementById('mp3')
+        aud.addEventListener('click', ()=>{
+            vid.muted = "false"
+            vid.controls = ""
+            vid.load()
+            sound.autoplay = "true"
+            sound.load()
+            console.log('done')
+        })
     </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/modernizr-2.6.2.min.js"></script>
